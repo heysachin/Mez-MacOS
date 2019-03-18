@@ -7,13 +7,24 @@
 //
 
 import Cocoa
+import WebKit
 
 class ViewController: NSViewController {
-
+    
+    
+    @IBOutlet weak var webView: WKWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let myURL = URL(string:"https://tricodia.com/mez")
+        let myRequest = URLRequest(url: myURL!)
+        webView.load(myRequest)
 
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear() {
+        view.window?.toggleFullScreen(self)
     }
 
     override var representedObject: Any? {
@@ -22,6 +33,6 @@ class ViewController: NSViewController {
         }
     }
 
-
+    
 }
 
